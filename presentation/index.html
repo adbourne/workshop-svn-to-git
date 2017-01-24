@@ -1,0 +1,229 @@
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <title>Workshop: svn to git</title>
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/night.css">
+    <!-- For use when projectors don't display the presentation all that well  -->
+    <!-- <link rel="stylesheet" href="css/theme/white.css"> -->
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+
+        <!-- Title slide -->
+        <section>
+            <h1>Workshop: svn to git</h1>
+        </section>
+
+
+        <!-- Connection [10 mins]: Let's recap Subversion -->
+        <!-- Note: This will give the Subversion workflow to refer to throughout  -->
+        <section>
+            <h1>5 mins remaining</h1>
+        </section>
+        <section>
+            <h1>2 mins remaining</h1>
+        </section>
+        <section>
+            <h1>Time!</h1>
+        </section>
+
+        <!-- Concepts [10 mins]: Git Fundamentals -->
+        <section>
+            <h2>Subversion Topology</h2>
+            <img src="img/SubversionTopology.jpg" alt="Subversion Topology" height="500px">
+        </section>
+        <section>
+            <h2>Git Topology</h2>
+            <img src="img/GitTopology.jpg" alt="Git Topology" height="500px">
+        </section>
+        <section>
+            <h2>Get Code from Remote</h2>
+            <h4>Subversion</h4>
+        <pre>
+          <code class="bash">
+              # We 'checkout' in Subversion
+              svn checkout http://path-to-project
+          </code>
+        </pre>
+            <h4>Git</h4>
+        <pre>
+          <code class="bash">
+              # We 'clone' in git
+              git clone http://path-to-project
+          </code>
+        </pre>
+        </section>
+        <section>
+            <h3>Add File to Version Control</h3>
+            <h4>Subversion</h4>
+        <pre>
+          <code class="bash">
+              # We 'add' the file in Subversion
+              svn add path/to/file
+          </code>
+        </pre>
+            <h4>Git</h4>
+        <pre>
+          <code class="bash">
+              # We 'add' the file in Git
+              git add path/to/file
+          </code>
+        </pre>
+        </section>
+        <section>
+            <h2>Committing</h2>
+            <h4>Subversion</h4>
+        <pre>
+          <code class="bash">
+              # We 'commit' the file in Subversion
+              # This will send our commit away to the REMOTE server
+              svn commit -m"My awesome commit"
+          </code>
+        </pre>
+            <h4>Git</h4>
+        <pre>
+          <code class="bash">
+              # and it's pretty much the same in git
+              # This will send our commit away to our LOCAL server
+              git commit -m"My awesome commit"
+          </code>
+        </pre>
+        </section>
+        <section>
+            <h3>Push Commit to Remote Repository</h3>
+            <h4>Subversion</h4>
+        <pre>
+          <code class="bash">
+              # Nothing to do here
+          </code>
+        </pre>
+            <h4>Git</h4>
+        <pre>
+          <code class="bash">
+              git push -u
+          </code>
+        </pre>
+        </section>
+
+        <!-- Exercise [10 mins]: Git Fundamentals -->
+        <section>
+            <h2>Exercise: Git Fundamentals</h2>
+            <h4>Instructions:</h4>
+            <ol>
+                <li><code class="bash">Clone</code> this repository</li>
+                <li>Create a new file</li>
+                <li><code class="bash">Add</code> your file to the staging area</li>
+                <li><code class="bash">Commit</code> your file!</li>
+                <li>Make sure your commit is there with:
+                    <code class="bash">git log</code>
+                </li>
+            </ol>
+        </section>
+
+        <!-- Concepts [10 mins]: Typical git workflow -->
+        <section>
+            <h1>Git Workflow</h1>
+        </section>
+        <section>
+            <h2>Branches</h2>
+            <img src="img/Branches.jpg" alt="Git branching representation"/>
+        </section>
+        <section>
+            <h2>Managing Branches</h2>
+        <pre>
+          <code class="bash">
+              # Check current branch
+              git branch
+
+              # or
+              git status
+
+              # Create a new branch from current
+              git checkout -b new-branch-name
+
+              # Switch between branches
+              git checkout branch-to-switch-to
+          </code>
+        </pre>
+        </section>
+        <section>
+            <h3>Managing Remote vs Local Repositories</h3>
+        <pre>
+          <code class="bash">
+              # Update metadata about remote repository e.g branches etc
+              # This does not make any code changes
+              get fetch origin
+
+              # Update all local branches
+              git pull
+
+              # or to be more specific and update one branch
+              git pull origin name-of-branch
+          </code>
+        </pre>
+        </section>
+        <section>
+            <h3>Tagging</h3>
+        <pre>
+          <code class="bash">
+              # List tags
+              git tag
+
+              # Create a tag
+              get tag name-of-tag
+          </code>
+        </pre>
+        </section>
+
+        <!-- Excercise [10 mins]: Typical git workflow -->
+        <section>
+            <h2>Excercise: Git Workflow</h2>
+            <p>Tip: Use <code class="bash">git help</code> if stuck on commands</p>
+            <ol>
+                <li>Create a new branch including your commits from earlier, call it your name e.g <code>aaron</code>
+                </li>
+                <li><code>Push</code> your branch to remote</li>
+                <li>Raise a pull request into dev</li>
+                <li>Review and merge someones pull request</li>
+                <li><code>Checkout</code> dev</li>
+                <li><code>Pull</code> down the latest changes</li>
+            </ol>
+        </section>
+
+        <!-- Wrap up [10 mins] -->
+        <section>
+            <h1>Wrap up</h1>
+        </section>
+
+    </div>
+</div>
+
+<script src="js/head.min.js"></script>
+<!-- Required for reveal.js load timing issue when configuring with Reveal.initialize() -->
+<script src="js/reveal.js"></script>
+<script>
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+
+    transition: 'slide',
+
+    dependencies: [
+      { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+    ]
+  });
+
+</script>
+</body>
+</html>
